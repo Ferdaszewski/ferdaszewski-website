@@ -1,0 +1,89 @@
+/* Nicolas Gallagher's micro clearfix hack */
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+
+.grup:after {
+  clear: both;
+}
+
+body {
+  min-width: 400px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  margin: 0 auto;
+  max-width: 1200px;
+  height: auto;
+}
+
+h1, h2 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+nav {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+nav ul {
+  display: table-row;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  list-style: none;
+  display: table-cell;
+  text-align: center;
+}
+
+nav a {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  display: block;
+}
+
+.carousel {
+  margin-top: 20px;
+}
+
+.carousel-image {
+  display: block;
+  margin: 0 auto;
+  width: 75%;
+}
+
+.info {
+  margin: 0 auto;
+}
+
+.info-wrapper {
+  margin: 0 auto;
+}
+
+.info-section {
+  width: 370px;
+  margin: 5px;
+  padding: 10px;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.info-section h2 {
+  text-align: center;
+}
+
+/* TODO: media querie ~700 and ~1000 for nav bar */
