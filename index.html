@@ -13,15 +13,27 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        <a class="navbar-header" href="index.html">The Walk</a>
-        <ul class="navbar-nav">
-          <li role="presentation"><a href="photos.html">Photos</a></li>
-          <li role="presentation"><a href="journal.html">Journal</a></li>
-          <li role="presentation"><a href="about.html">About</a></li>
-        </ul>
-        <h4 class="pull-right">Pacific Crest Trail 2004</h4>
+        <div class="navbar-header">
+          <button class="navbar-toggle collaposed" aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">The Walk</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li role="presentation"><a href="photos.html">Photos</a></li>
+            <li role="presentation"><a href="journal.html">Journal</a></li>
+            <li role="presentation"><a href="about.html">About</a></li>
+          </ul>
+          <ul class="nav navbar-text navbar-right">
+            <li>Pacific Crest Trail 2004</li>
+          </ul>
+        </div>
       </div>
     </nav>
 
