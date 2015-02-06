@@ -18,6 +18,10 @@ h1, h2, h3, .nav-text-name {
   font-size: 1.5em;
 }
 
+.img-wrapper {
+  margin-top: 2em;
+}
+
 .footer {
   text-align: center;
   background-color: #333;
