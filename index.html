@@ -7,12 +7,13 @@
     <meta name="author" content="Joshua Ferdaszewski">
     <meta name="description" content="Joshua "Meat Pants" Ferdaszewski's 2004 thru-hike of the Pacific Crest Trail (PCT) with photos and journal entries.">
     <title>The Walk | Joshua "Meat Pants" Ferdaszewski's 2004 PCT thru-hike</title>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700|Roboto+Slab:700' rel='stylesheet' type='text/css'>
-    <link href="bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Slab:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link href="css/main.css" rel="stylesheet">
   </head>
   <body>
 
+  <!--Navigation-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -22,23 +23,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">The Walk</a>
+          <a class="navbar-brand nav-text-name" href="#">The Walk</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li role="presentation"><a href="photos.html">Photos</a></li>
-            <li role="presentation"><a href="journal.html">Journal</a></li>
-            <li role="presentation"><a href="about.html">About</a></li>
+            <li class="nav-links" role="presentation"><a href="photos.html">Photos</a></li>
+            <li class="nav-links" role="presentation"><a href="journal.html">Journal</a></li>
+            <li class="nav-links" role="presentation"><a href="about.html">About</a></li>
           </ul>
           <ul class="nav navbar-text navbar-right">
-            <li>Pacific Crest Trail 2004</li>
+            <li class="text-muted">Pacific Crest Trail 2004</li>
           </ul>
         </div>
       </div>
     </nav>
 
     <div class="container">
-      <!--Title Image-->
       <section class="row">
         <img src="img/PCT-Ferd-094.jpg" class="img-responsive col-xs-12">
       </section>
@@ -49,25 +49,28 @@
 
           <!--Two blocks of info-->
           <article class="col-md-6 info-col">
-            <h2>Joshua "Meat Pants" Ferdaszewski</h2>
+            <h3>Joshua "Meat Pants" Ferdaszewski</h3>
             <p>This site is the documentation of my 2004 thru-hike of the Pacific Crest Trail. I started on May 1, 2004 at the Mexican boarder and ended September 22, 2004 north of White Pass in Washington.</p>
             <p>This is a 2015 update of my original 2004 website.  All the content, including my journal entries and photographs are the 2004 originals.</p>
           </article>
 
           <article class="col-md-6 info-col">
-            <h2>About the PCT</h2>
+            <h3>About the PCT</h3>
             <p>The Pacific Crest National Scenic Trail traverses 2,658.7 miles from the Mexican border to Canada. It crosses California, Oregon, and Washington along various mountain ranges including the San Bernardino, Sierras, and the Cascades.</p>
             <p><a href="http://www.pcta.org" target="_blank">The Pacific Crest Trail Association</a> is the organization that protects and promotes the PCT. Their website is a great resource for anyone interested in thru-hiking the trail.</p>
           </article>
         </div>
       </section>
+    </div>
 
       <!--Footer navigation and info-->
-      <footer>
-
+      <footer class="footer text-muted">
+        <div class="container">
+          <p class="h6">Created by <a class="text-muted" href="mailto:ferdaszewski@gmail.com">Joshua Ferdaszewski</a></p>
+        </div>
       </footer>
-    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="bootstrap-3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   </body>
 </html>
