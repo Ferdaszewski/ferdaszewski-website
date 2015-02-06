@@ -1,5 +1,5 @@
 # image folder for site with all the jpgs
-img/*
+**/img/
 
 # Ignore resource files
 bootstrap*/
