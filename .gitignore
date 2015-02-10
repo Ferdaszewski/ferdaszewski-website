@@ -1,5 +1,6 @@
-# image folder for site with all the jpgs
+# Folders to ignore
 **/img/
-
-# Ignore resource files
 bootstrap*/
+
+# File types to ignore
+*.tmp
