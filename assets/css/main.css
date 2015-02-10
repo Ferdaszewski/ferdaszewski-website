@@ -3,6 +3,7 @@ body {
   padding-top: 70px;
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 400;
+  font-size: 2em;
 }
 
 h1, h2, h3, .nav-text-name {
@@ -16,6 +17,18 @@ h1, h2, h3, .nav-text-name {
 
 .nav-links {
   font-size: 1.5em;
+}
+
+.page-header {
+  text-align: center;
+}
+
+.panel-title {
+  font-size: 1.1em;
+}
+
+.journal-wrapper {
+  margin-top: 30px;
 }
 
 .img-wrapper {

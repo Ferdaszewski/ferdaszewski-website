@@ -1,23 +1,24 @@
-"""A short script to parse my old website text and extract journal
+"""A small program to parse my old website text and extract journal
 entries. Then place them in html code for use in an updated website.
 """
-import re
-import pystache
 import codecs
+import jinja2
+import re
 
 
-def text_parse(text_file):
-    """Parse the text version of the journal entries and return a list of
-    tuples (date, info, journal_entry).
+def parse_journal_text(text_file):
+    """Parse the text version of the journal entries and return a list
+    of tuples (date, info, journal_entry).
     """
     journal_list = []
     journal_entry = ""
     date = None
     new_entry = []
-    with codecs.open(text_file, 'r', 'UTF-8') as f:
+    with codecs.open(text_file, 'r', 'utf_8') as fpt:
 
         # The start of each journal entry, date, and info is on a new line
-        for line in f:
+        for line in fpt:
+
             # The line after the date is the info line
             if date:
                 new_entry.append(line)
@@ -28,6 +29,7 @@ def text_parse(text_file):
             # The first thee chars in the date line are the months
             elif line[:3].lower() in ['apr', 'may', 'jun', 'jul',
                                       'aug', 'sep', 'oct', 'nov']:
+
                 # End of the current entry, add journal entry
                 new_entry.append(journal_entry)
 
@@ -53,23 +55,31 @@ def text_parse(text_file):
         new_entry = tuple([re.sub(r'\s{2,}', ' ', im.replace('\n', ''))
                           for im in new_entry])
         journal_list.append(new_entry)
-
         return journal_list
 
-def img_html(num):
-    """Simple function to generate html for my image page."""
-    html_template = '<div class="img-wrapper row">\n  <img src="img/PCT-Ferd-%.3d.jpg" class="img-responsive col-xs-12">\n</div>\n'
+
+def gen_img_html(num):
+    """Simple method to generate HTML for my image page. Returns the
+    HTML as a string.
+    """
+    html_template = ('<div class="img-wrapper row">\n  ' +
+                     '<img src="img/PCT-Ferd-%.3d.jpg" ' +
+                     'class="img-responsive col-xs-12">\n</div>\n')
     html = ''
     for number in xrange(1, num+1):
         html += (html_template % number)
 
     return html
 
-journal = text_parse("thewalk.txt")
-for entry in journal:
-    print unicode(entry)
-    print '+' * 100
-print len(journal)
 
-with open("img-html.tmp", 'w') as f:
-    f.write(img_html(447))
+def write_file(text, file_name):
+    """Write the string to the file name."""
+    with codecs.open(file_name, 'w', 'utf_8') as fpt:
+        fpt.write(text)
+
+# Print result of journal text parse
+journal = parse_journal_text('thewalk.txt')
+journal_str = u''
+for entry in journal:
+    journal_str += ('\n'.join(entry) + '\n\n')
+write_file(journal_str, 'journal.tmp')
