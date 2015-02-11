@@ -19,8 +19,22 @@ h1, h2, h3, .nav-text-name {
   font-size: 1.5em;
 }
 
+.sidebar-nav {
+  top: 55px;
+  margin-top: 25px;
+  padding-left: 10px;
+}
+
 .page-header {
   text-align: center;
+}
+
+.anchor:before {
+  content: "";
+  display: block;
+  height: 85px;
+  margin-top: -85px;
+  visibility: hidden;
 }
 
 .panel-title {

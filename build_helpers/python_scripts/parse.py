@@ -85,7 +85,11 @@ def write_file(text, file_name):
     with codecs.open(file_name, 'w', 'utf_8') as fpt:
         fpt.write(text)
 
-# Print result of journal text parse
-journal_list = parse_journal_text('thewalk.txt')
+# Create journal list, oldest to newest
+journal_list = parse_journal_text('thewalk.txt')[::-1]
+
+# Using the template, render the HTML to a string
 journal_str = journal_html({'journal': journal_list})
+
+# Write HTML to a file
 write_file(journal_str, 'journal.html')
