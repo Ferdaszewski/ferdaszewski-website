@@ -19,6 +19,10 @@ h1, h2, h3, .nav-text-name {
   font-size: 1.5em;
 }
 
+.navbar-nav>li>a {
+  line-height: 30px;
+}
+
 .sidebar-nav {
   top: 55px;
   margin-top: 25px;

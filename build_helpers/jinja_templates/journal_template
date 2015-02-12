@@ -43,17 +43,22 @@
         <h1 class="page-header">Journal Entries</h1>
         <p>I kept a journal and wrote in it most nights on the trail. It was all written in longhand and transcribed by my good friend <a href="http://jonathanmarrs.com/">Jonathan Marrs</a> who valiantly tried to decipher my poor handwriting and atrocious spelling. Needless to say there are significant grammatical and spelling errors in the text below, so be warned.</p>
       </div>
-      
+
       <div class="row">
         <section class="journal-wrapper col-md-10">
         {% for entry in journal %}
           <article class="panel panel-default">
             <div class="panel-heading">
+              {% if entry['month_first'] is not none -%}
+                <a class="anchor" id="{{ entry['month_first'] }}"></a>
+              {%- endif %}
               <h2 class="panel-title">{{ entry['date'] }}</h2>
               <p class="panel-title">{{ entry['info'] }}</p>
             </div>
             <div class="panel-body">
-              <p>{{ entry['journal_entry'] }}</p>
+            {% for paragraph in entry['journal_entry'] %}
+              <p>{{ paragraph }}</p>
+            {% endfor %}
             </div>
           </article>
         {% endfor %}
