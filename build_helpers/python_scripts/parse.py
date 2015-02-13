@@ -147,3 +147,7 @@ if __name__ == '__main__':
     # Render index page
     index_str = render_html({}, 'index_template')
     write_file(index_str, '../../index.html')
+
+    # Render about page
+    about_str = render_html({}, 'about_template')
+    write_file(about_str, '../../about.html')

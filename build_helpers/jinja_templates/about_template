@@ -1,0 +1,12 @@
+{% extends "base_template" %}
+{% block description %}About Joshua 'Meat Pants' Ferdaszewski who did a 2004 thru-hike of the Pacific Crest Trail (PCT).{% endblock %}
+{% block title %}The Walk - About{% endblock %}
+{% block about_active %} active{% endblock %}
+{% block page_content %}
+      <div>
+        <h1 class="page-header">About "Meat Pants"</h1>
+        <p>Some introtext and a photo?</p>
+      </div>
+        <p>Some other stuff about me...</p>
+      </div>
+{% endblock %}
