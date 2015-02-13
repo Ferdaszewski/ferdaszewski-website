@@ -1,44 +1,8 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Joshua Ferdaszewski">
-    <meta name="description" content="Joshua 'Meat Pants' Ferdaszewski's journal entries from his 2004 thru-hike of the Pacific Crest Trail (PCT).">
-    <title>The Walk - Journals | Joshua "Meat Pants" Ferdaszewski's 2004 PCT thru-hike</title>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Slab:700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link href="assets/css/main.css" rel="stylesheet">
-  </head>
-  <body>
-
-  <!--Navigation-->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle collaposed" aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button">
-            <span class="sr-only"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand nav-text-name" href="index.html">The Walk</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="nav-links" role="presentation"><a href="photos.html">Photos</a></li>
-            <li class="nav-links active" role="presentation"><a href="journal.html">Journal</a></li>
-            <li class="nav-links" role="presentation"><a href="about.html">About</a></li>
-          </ul>
-          <ul class="nav navbar-text navbar-right">
-            <li class="text-muted">Pacific Crest Trail 2004</li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container">
+{% extends "base_template" %}
+{% block description %}Joshua 'Meat Pants' Ferdaszewski's journal entries from his 2004 thru-hike of the Pacific Crest Trail (PCT).{% endblock %}
+{% block title %}The Walk - Journals{% endblock %}
+{% block journal_active %} active{% endblock %}
+{% block page_content %}
       <div>
         <h1 class="page-header">Journal Entries</h1>
         <p>I kept a journal and wrote in it most nights on the trail. It was all written in longhand and transcribed by my good friend <a href="http://jonathanmarrs.com/">Jonathan Marrs</a> who valiantly tried to decipher my poor handwriting and atrocious spelling. Needless to say there are significant grammatical and spelling errors in the text below, so be warned.</p>
@@ -64,6 +28,7 @@
         {% endfor %}
         </section>
 
+        <!--Right side nav-->
         <div class="col-md-2">
           <nav class="sidebar-nav hidden-print hidden-xs hidden-sm" data-spy="affix" data-offset-top="200">
             <h3>Month</h3>
@@ -77,16 +42,4 @@
         </div>
 
       </div>
-    </div>
-
-      <!--Footer navigation and info-->
-      <footer class="footer text-muted">
-        <div class="container">
-          <p class="h6">Created by <a class="text-muted" href="mailto:ferdaszewski@gmail.com">Joshua Ferdaszewski</a></p>
-        </div>
-      </footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  </body>
-</html>
+{% endblock %}

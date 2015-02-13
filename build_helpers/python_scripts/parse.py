@@ -2,9 +2,20 @@
 entries. Then place them in html code for use in an updated website.
 """
 import codecs
-import iptcinfo
+from iptcinfo import IPTCInfo
 import jinja2
+import os
+from PIL import Image
 import re
+
+
+# Module contestants
+IMG_TYPES = ['jpg', 'jpeg', 'tiff', 'gif']
+EXIF_KEYS = {
+    'width': 'Image XResolution',
+    'height': 'Image YResolution'
+    }
+IPTC_KEYS = {'tags': 25, 'caption': 120}
 
 
 def parse_journal_text(text_file):
@@ -85,14 +96,42 @@ def img_html(img_folder):
     """Generates the HTML for my image page using the images in the
     folder passed in as a string. Returns the HTML as a string.
     """
-    env = jinja2.Environment(
-    loader=jinja2.FileSystemLoader('../jinja_templates'))
-    template = env.get_template('photo_template')
-    html = ''
-    for number in xrange(1, num+1):
-        html += (html_template % number)
+    # env = jinja2.Environment(
+    # loader=jinja2.FileSystemLoader('../jinja_templates'))
+    # template = env.get_template('photo_template')
 
-    return html
+    img_list = [f for f in os.listdir(img_folder) if
+                os.path.isfile(os.path.join(img_folder, f)) and
+                f.split('.')[-1].lower() in IMG_TYPES]
+    img_list.sort()
+
+    img_info_list = []
+    for img in img_list:
+        img_info = {}
+
+        # Get IPTC info from file
+        with open(os.path.join(img_folder, img)) as f:
+            iptc_info = IPTCInfo(f)
+            for tag, iptc_tag in IPTC_KEYS.items():
+                img_info[tag] = iptc_info.data[iptc_tag]
+
+        # Get size info from file in pixels
+        width, height = Image.open(os.path.join(img_folder, img)).size
+        img_info['width'] = width
+        img_info['height'] = height
+
+        img_info_list.append(img_info)
+
+    # Get List of img files, using global constant.
+    # Sort list descending by file name
+    # Create list of img iptc data dicts matching index of img filename list
+        # Info needed in data dicts
+        # Caption -> html and alt tag
+        # orientation
+        # size
+
+    images = zip(img_list, img_info_list)
+    return images
 
 
 def write_file(text, file_name):
@@ -100,11 +139,9 @@ def write_file(text, file_name):
     with codecs.open(file_name, 'w', 'utf_8') as fpt:
         fpt.write(text)
 
-# Create journal dict list
-journal_list = parse_journal_text('thewalk.txt')
 
-# Using the template, render the HTML to a string
-journal_str = journal_html({'journal': journal_list})
-
-# Write HTML to a file
-write_file(journal_str, 'journal.html')
+if __name__ == '__main__':
+    # Create journal page and write to HTML file
+    journal_list = parse_journal_text('thewalk.txt')
+    journal_str = journal_html({'journal': journal_list})
+    write_file(journal_str, 'journal.html')

@@ -4,3 +4,4 @@ bootstrap*/
 
 # File types to ignore
 *.tmp
+*.pyc
