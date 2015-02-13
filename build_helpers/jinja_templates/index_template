@@ -1,0 +1,27 @@
+{% extends "base_template" %}
+{% block description %}Joshua 'Meat Pants' Ferdaszewski's 2004 thru-hike of the Pacific Crest Trail (PCT) with photos and journal entries.{% endblock %}
+{% block title %}The Walk{% endblock %}
+{% block page_content %}
+      <section class="row">
+        <img src="assets/img/PCT-2004-Ferdaszewski-092.jpg" class="img-responsive col-xs-12">
+      </section>
+
+      <!--Main page info section-->
+      <section>
+        <div class="center-block clearfix info-wrapper">
+
+          <!--Two blocks of info-->
+          <article class="col-md-6 info-col">
+            <h3>Joshua "Meat Pants" Ferdaszewski</h3>
+            <p>This site is the documentation of my 2004 thru-hike of the Pacific Crest Trail. I started on May 1, 2004 at the Mexican boarder and ended September 22, 2004 north of White Pass in Washington.</p>
+            <p>This is a 2015 update of my original 2004 website.  All the content, including my journal entries and photographs are the 2004 originals.</p>
+          </article>
+
+          <article class="col-md-6 info-col">
+            <h3>About the PCT</h3>
+            <p>The Pacific Crest National Scenic Trail traverses 2,658.7 miles from the Mexican border to Canada. It crosses California, Oregon, and Washington along various mountain ranges including the San Bernardino, Sierras, and the Cascades.</p>
+            <p><a href="http://www.pcta.org" target="_blank">The Pacific Crest Trail Association</a> is the organization that protects and promotes the PCT. Their website is a great resource for anyone interested in thru-hiking the trail.</p>
+          </article>
+        </div>
+      </section>
+{% endblock %}

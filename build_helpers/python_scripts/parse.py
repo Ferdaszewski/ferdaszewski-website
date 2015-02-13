@@ -6,19 +6,14 @@ from iptcinfo import IPTCInfo
 import jinja2
 import os
 from PIL import Image
-import re
 
 
 # Module contestants
 IMG_TYPES = ['jpg', 'jpeg', 'tiff', 'gif']
-EXIF_KEYS = {
-    'width': 'Image XResolution',
-    'height': 'Image YResolution'
-    }
 IPTC_KEYS = {'tags': 25, 'caption': 120}
 
 
-def parse_journal_text(text_file):
+def journal_html(text_file):
     """Parse the text version of the journal entries and return a list
     of dicts (date, info, journal_entry). Journal_values are a list of
     paragraphs.
@@ -80,26 +75,21 @@ def parse_journal_text(text_file):
             else:
                 entry['month_first'] = None
 
-        return journal_list
+        return render_html({'journal': journal_list}, 'journal_template')
 
 
-def journal_html(journal):
-    """Takes a list of dicts and returns a rendered HTML page as a
-    string, for use on the new site."""
+def render_html(html, template):
+    """Render out the HTML string and return it."""
     env = jinja2.Environment(
         loader=jinja2.FileSystemLoader('../jinja_templates'))
-    template = env.get_template('journal_template')
-    return template.render(journal)
+    template = env.get_template(template)
+    return template.render(html)
 
 
 def img_html(img_folder):
     """Generates the HTML for my image page using the images in the
     folder passed in as a string. Returns the HTML as a string.
     """
-    env = jinja2.Environment(
-    loader=jinja2.FileSystemLoader('../jinja_templates'))
-    template = env.get_template('photo_template')
-
     img_list = [f for f in os.listdir(img_folder) if
                 os.path.isfile(os.path.join(img_folder, f)) and
                 f.split('.')[-1].lower() in IMG_TYPES]
@@ -110,8 +100,8 @@ def img_html(img_folder):
         img_info = {}
 
         # Get IPTC info from file
-        with open(os.path.join(img_folder, img)) as f:
-            iptc_info = IPTCInfo(f)
+        with open(os.path.join(img_folder, img)) as img_file:
+            iptc_info = IPTCInfo(img_file)
             for tag, iptc_tag in IPTC_KEYS.items():
                 img_info[tag] = iptc_info.data[iptc_tag]
 
@@ -136,7 +126,7 @@ def img_html(img_folder):
             entry['month_first'] = None
 
     images = zip(img_list, img_info_list)
-    return template.render({'images': images})
+    return render_html({'images': images}, 'photo_template')
 
 
 def write_file(text, file_name):
@@ -147,10 +137,13 @@ def write_file(text, file_name):
 
 if __name__ == '__main__':
     # Create journal page and write to HTML file
-    journal_list = parse_journal_text('thewalk.txt')
-    journal_str = journal_html({'journal': journal_list})
+    journal_str = journal_html('thewalk.txt')
     write_file(journal_str, '../../journal.html')
 
     # Create photo page and write to HTML file_name
     image_page_str = img_html('../../assets/img')
     write_file(image_page_str, '../../photos.html')
+
+    # Render index page
+    index_str = render_html({}, 'index_template')
+    write_file(index_str, '../../index.html')
