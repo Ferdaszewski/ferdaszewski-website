@@ -1,5 +1,5 @@
 body {
-  min-width: 450px;
+  min-width: 250px;
   padding-top: 70px;
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 400;
@@ -39,6 +39,15 @@ h1, h2, h3, .nav-text-name {
   height: 85px;
   margin-top: -85px;
   visibility: hidden;
+}
+
+.img-wrapper {
+  display: inline-block;
+}
+
+.caption {
+  padding-top: .05em;
+  text-align: center;
 }
 
 .panel-title {
