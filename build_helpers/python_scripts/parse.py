@@ -115,14 +115,27 @@ def img_html(img_folder):
             for tag, iptc_tag in IPTC_KEYS.items():
                 img_info[tag] = iptc_info.data[iptc_tag]
 
-        # Get size info from file in pixels
+        # Get size of file in pixels
         width, height = Image.open(os.path.join(img_folder, img)).size
         img_info['width'] = width
         img_info['height'] = height
         img_info_list.append(img_info)
 
-    images = zip(img_list, img_info_list)
+    # month_first is None unless it is the first instance
+    month_list = ['may', 'june', 'july', 'august', 'september']
+    for entry in img_info_list:
 
+        # tags is a list with 'MM 2004' and 'PCT' only
+        entry['tags'].remove('PCT')
+        month = entry['tags'][0].split()[0].lower()
+
+        if month in month_list:
+            entry['month_first'] = month
+            month_list.remove(month)
+        else:
+            entry['month_first'] = None
+
+    images = zip(img_list, img_info_list)
     return template.render({'images': images})
 
 
@@ -134,10 +147,10 @@ def write_file(text, file_name):
 
 if __name__ == '__main__':
     # Create journal page and write to HTML file
-    # journal_list = parse_journal_text('thewalk.txt')
-    # journal_str = journal_html({'journal': journal_list})
-    # write_file(journal_str, 'journal.html')
+    journal_list = parse_journal_text('thewalk.txt')
+    journal_str = journal_html({'journal': journal_list})
+    write_file(journal_str, '../../journal.html')
 
     # Create photo page and write to HTML file_name
     image_page_str = img_html('../../assets/img')
-    write_file(image_page_str, 'photo.html')
+    write_file(image_page_str, '../../photos.html')

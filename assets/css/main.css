@@ -29,7 +29,7 @@ h1, h2, h3, .nav-text-name {
   padding-left: 10px;
 }
 
-.page-title {
+.page-header {
   text-align: center;
 }
 
@@ -41,13 +41,32 @@ h1, h2, h3, .nav-text-name {
   visibility: hidden;
 }
 
-.img-wrapper {
-  display: inline-block;
+.b-lazy {
+    -webkit-transition: opacity 500ms ease-in-out;
+       -moz-transition: opacity 500ms ease-in-out;
+         -o-transition: opacity 500ms ease-in-out;
+            transition: opacity 500ms ease-in-out;
+               opacity: 0;
+}
+.b-lazy.b-loaded {
+               opacity: 1;
+}
+
+.photo-img {
+  padding: 0;
+  width: 100%;
+  float: left;
+  border: 5px solid black;
 }
 
 .caption {
-  padding-top: .05em;
+  padding-bottom: .5em;
   text-align: center;
+  background-color: black;
+  color: lightgray;
+  margin-bottom: 1em;
+  display: inline-block;
+  width: 100%;
 }
 
 .panel-title {

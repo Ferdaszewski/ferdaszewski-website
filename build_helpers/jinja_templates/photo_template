@@ -5,59 +5,37 @@
 {% block page_content %}
       <div>
         <h1 class="page-header">Photography from the trail</h1>
-        <p>I thought it would be a good idea to bring 5 lbs of camera gear on a thousand mile hike. I'm glad I did. Along with several film canisters, I had a Nikon N65 film camera with two very nice lenses, a Nikon 60mm f/2.8 macro and a Nikon 24mm f/2.8. I mailed the finished rolls of film to my good friend Jonathan Marrs who had them developed and scanned the negatives. One thing to note is that the first two rolls are very low resolution images with some scanning issues, the rolls after are much better.</p>
+        <p>I thought it would be a good idea to bring 5 lbs of camera gear on a thousand mile hike. I'm glad I did. Along with several film canisters, I had a Nikon N65 film camera with two very nice lenses, a Nikon 60mm f/2.8 macro and a Nikon 24mm f/2.8. I mailed the finished rolls of film to my good friend <a href="http://jonathanmarrs.com" target="_blank">Jonathan Marrs</a> who had them developed and scanned the negatives. One thing to note is that the first two rolls are very low resolution images with some scanning issues, the rolls after are much better.</p>
       </div>
 
-      <div class="row">
-        <section class="col-md-10">
-
-          {% for image, info in images %}
-
-
-
-            {% if info['width'] < 850 %}
-            {{ loop.cycle('<div class="col-md-12 row">', "") }}
-              
-              <div class="img-wrapper col-sm-6">
-                <img class="img-responsive" src="assets/img/{{ image|e }}" alt="{{ info['caption']|e }}">
-                <p class="caption">{{ info['caption']|e }}</p>
-              </div>
-
-            {{ loop.cycle("", "</div>") }}
-
-            {% elif info['width'] < info['height'] %}
-            <div class="col-md-12 row">
-              <div class="img-wrapper col-sm-6 col-sm-offset-3">
-                <img class="img-responsive" src="assets/img/{{ image|e }}" alt="{{ info['caption']|e }}">        
-                <p class="caption">{{ info['caption']|e }}</p>
-              </div>
+      <section class="col-xs-12">
+        {% for image, info in images %}
+          {% if (info['width'] < 800) and not (info['width'] < info['height']) %}
+          {{ loop.cycle('<div class="col-md-12 row">', "") }}            
+            <div class="img-wrapper col-sm-6">
+              <img class="img-responsive b-lazy photo-img" data-src="assets/img/{{ image|e }}" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== alt="{{ info['caption']|e }}">
+              <p class="caption">{{ info['caption']|e }}</p>
             </div>
-
-            {% else %}
-            <div class="col-md-12 row">
-              <div class="img-wrapper">
-                <img class="img-responsive" src="assets/img/{{ image|e }}" alt="{{ info['caption']|e }}">        
-                <p class="caption">{{ info['caption']|e }}</p>
-              </div>
+          {{ loop.cycle("", "</div>") }}
+          {% elif info['width'] < info['height'] %}
+          <div class="col-md-12 row">
+            <div class="img-wrapper col-sm-6 col-sm-offset-3">
+              <img class="img-responsive b-lazy photo-img" data-src="assets/img/{{ image|e }}" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== alt="{{ info['caption']|e }}">        
+              <p class="caption">{{ info['caption']|e }}</p>
             </div>
+          </div>
+          {% else %}
+          <div class="col-md-12 row">
+            <img class="img-responsive b-lazy photo-img" data-src="assets/img/{{ image|e }}" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== alt="{{ info['caption']|e }}">        
+            <p class="caption">{{ info['caption']|e }}</p>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </section>
 
-            {% endif %}
-
-          {% endfor %}
-
-        </section>
-
-        <!--Right side nav-->
-        <div class="col-md-2">
-          <nav class="sidebar-nav hidden-print hidden-xs hidden-sm" data-spy="affix" data-offset-top="200">
-            <h3>Month</h3>
-            <p><a href="#may">May</a></p>
-            <p><a href="#june">June</a></p>
-            <p><a href="#july">July</a></p>
-            <p><a href="#august">August</a></p>
-            <p><a href="#september">September</a></p>
-          </nav>
-        </div>
-
-      </div>
+{% endblock %}
+{% block js_load %}
+    {{ super() }}
+    <script src="http://cdn.jsdelivr.net/blazy/latest/blazy.min.js"></script>
+    <script src="assets/js/photo.js"></script>
 {% endblock %}

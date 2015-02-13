@@ -8,7 +8,7 @@
     <meta name="description" content="{% block description %}{% endblock %}">
     <title>{% block title %}{% endblock %} | Joshua "Meat Pants" Ferdaszewski's 2004 PCT thru-hike</title>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Slab:700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
   </head>
   <body>
@@ -32,7 +32,8 @@
             <li class="nav-links{% block about_active %}{% endblock %}" role="presentation"><a href="about.html">About</a></li>
           </ul>
           <ul class="nav navbar-text navbar-right">
-            <li class="text-muted">Pacific Crest Trail 2004</li>
+            <li class="text-muted hidden-sm">Pacific Crest Trail 2004</li>
+            <li class="text-muted visible-sm-block">PCT 2004</li>
           </ul>
         </div>
       </div>
@@ -49,8 +50,9 @@
           <p class="h6">Created by <a class="text-muted" href="mailto:ferdaszewski@gmail.com">Joshua Ferdaszewski</a></p>
         </div>
       </footer>
-
+    {% block js_load %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    {% endblock %}
   </body>
 </html>
