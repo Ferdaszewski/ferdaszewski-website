@@ -141,8 +141,8 @@ if __name__ == '__main__':
     write_file(journal_str, '../../journal.html')
 
     # Create photo page and write to HTML file_name
-    image_page_str = img_html('../../assets/img')
-    write_file(image_page_str, '../../photos.html')
+    image_str = img_html('../../assets/img')
+    write_file(image_str, '../../photos.html')
 
     # Render index page
     index_str = render_html({}, 'index_template')

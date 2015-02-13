@@ -27,7 +27,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="nav-links{% block photos_active %}{% endblock %}" role="presentation"><a href="photos.html">Photos</a></li>
+            <li class="nav-links{% block photo_active %}{% endblock %}" role="presentation"><a href="photos.html">Photos</a></li>
             <li class="nav-links{% block journal_active %}{% endblock %}" role="presentation"><a href="journal.html">Journal</a></li>
             <li class="nav-links{% block about_active %}{% endblock %}" role="presentation"><a href="about.html">About</a></li>
           </ul>
