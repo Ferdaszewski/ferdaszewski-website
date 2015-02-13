@@ -57,12 +57,16 @@ h1, h2, h3, .nav-text-name {
   width: 100%;
   float: left;
   border: 5px solid black;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 .caption {
   padding-bottom: .5em;
   text-align: center;
   background-color: black;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
   color: lightgray;
   margin-bottom: 1em;
   display: inline-block;
