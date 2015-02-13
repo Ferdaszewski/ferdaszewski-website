@@ -13,15 +13,9 @@
 
           {% for image, info in images %}
 
-            {% if info['width'] < info['height'] %}
-            <div class="col-md-12 row">
-              <div class="img-wrapper col-sm-6 col-sm-offset-3">
-                <img class="img-responsive" src="assets/img/{{ image|e }}" alt="{{ info['caption']|e }}">        
-                <p class="caption">{{ info['caption']|e }}</p>
-              </div>
-            </div>
 
-            {% elif info['width'] < 1000 %}
+
+            {% if info['width'] < 850 %}
             {{ loop.cycle('<div class="col-md-12 row">', "") }}
               
               <div class="img-wrapper col-sm-6">
@@ -30,6 +24,14 @@
               </div>
 
             {{ loop.cycle("", "</div>") }}
+
+            {% elif info['width'] < info['height'] %}
+            <div class="col-md-12 row">
+              <div class="img-wrapper col-sm-6 col-sm-offset-3">
+                <img class="img-responsive" src="assets/img/{{ image|e }}" alt="{{ info['caption']|e }}">        
+                <p class="caption">{{ info['caption']|e }}</p>
+              </div>
+            </div>
 
             {% else %}
             <div class="col-md-12 row">
