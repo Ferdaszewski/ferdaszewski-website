@@ -96,9 +96,9 @@ def img_html(img_folder):
     """Generates the HTML for my image page using the images in the
     folder passed in as a string. Returns the HTML as a string.
     """
-    # env = jinja2.Environment(
-    # loader=jinja2.FileSystemLoader('../jinja_templates'))
-    # template = env.get_template('photo_template')
+    env = jinja2.Environment(
+    loader=jinja2.FileSystemLoader('../jinja_templates'))
+    template = env.get_template('photo_template')
 
     img_list = [f for f in os.listdir(img_folder) if
                 os.path.isfile(os.path.join(img_folder, f)) and
@@ -119,19 +119,11 @@ def img_html(img_folder):
         width, height = Image.open(os.path.join(img_folder, img)).size
         img_info['width'] = width
         img_info['height'] = height
-
         img_info_list.append(img_info)
 
-    # Get List of img files, using global constant.
-    # Sort list descending by file name
-    # Create list of img iptc data dicts matching index of img filename list
-        # Info needed in data dicts
-        # Caption -> html and alt tag
-        # orientation
-        # size
-
     images = zip(img_list, img_info_list)
-    return images
+
+    return template.render({'images': images})
 
 
 def write_file(text, file_name):
@@ -142,6 +134,10 @@ def write_file(text, file_name):
 
 if __name__ == '__main__':
     # Create journal page and write to HTML file
-    journal_list = parse_journal_text('thewalk.txt')
-    journal_str = journal_html({'journal': journal_list})
-    write_file(journal_str, 'journal.html')
+    # journal_list = parse_journal_text('thewalk.txt')
+    # journal_str = journal_html({'journal': journal_list})
+    # write_file(journal_str, 'journal.html')
+
+    # Create photo page and write to HTML file_name
+    image_page_str = img_html('../../assets/img')
+    write_file(image_page_str, 'photo.html')

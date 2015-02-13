@@ -16,12 +16,12 @@
               {% if entry['month_first'] is not none -%}
                 <a class="anchor" id="{{ entry['month_first'] }}"></a>
               {%- endif %}
-              <h2 class="panel-title">{{ entry['date'] }}</h2>
-              <p class="panel-title">{{ entry['info'] }}</p>
+              <h2 class="panel-title">{{ entry['date']|e }}</h2>
+              <p class="panel-title">{{ entry['info']|e }}</p>
             </div>
             <div class="panel-body">
             {% for paragraph in entry['journal_entry'] %}
-              <p>{{ paragraph }}</p>
+              <p>{{ paragraph|e }}</p>
             {% endfor %}
             </div>
           </article>
