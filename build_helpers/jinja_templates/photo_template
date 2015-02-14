@@ -18,20 +18,20 @@
           {% if (info['width'] < 800) and not (info['width'] < info['height']) %}
           {{ loop.cycle('<div class="col-md-12 row">', "") }}            
             <div class="img-wrapper col-sm-6">
-              <img class="img-responsive b-lazy photo-img" data-src="assets/img/{{ image|e }}" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== alt="{{ info['caption']|e }}">
+              <img class="img-responsive b-lazy photo-img" data-src="assets/img/pct/{{ image|e }}" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== alt="{{ info['caption']|e }}">
               <p class="caption">{{ info['caption']|e }}</p>
             </div>
           {{ loop.cycle("", "</div>") }}
           {% elif info['width'] < info['height'] %}
           <div class="col-md-12 row">
             <div class="img-wrapper col-sm-6 col-sm-offset-3">
-              <img class="img-responsive b-lazy photo-img" data-src="assets/img/{{ image|e }}" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== alt="{{ info['caption']|e }}">        
+              <img class="img-responsive b-lazy photo-img" data-src="assets/img/pct/{{ image|e }}" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== alt="{{ info['caption']|e }}">        
               <p class="caption">{{ info['caption']|e }}</p>
             </div>
           </div>
           {% else %}
           <div class="col-md-12 row">
-            <img class="img-responsive b-lazy photo-img" data-src="assets/img/{{ image|e }}" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== alt="{{ info['caption']|e }}">        
+            <img class="img-responsive b-lazy photo-img" data-src="assets/img/pct/{{ image|e }}" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== alt="{{ info['caption']|e }}">        
             <p class="caption">{{ info['caption']|e }}</p>
           </div>
           {% endif %}
