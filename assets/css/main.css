@@ -19,7 +19,7 @@ h1, h2, h3, .nav-text-name {
   font-size: 1.5em;
 }
 
-.navbar-nav>li>a {
+.navbar-nav>li>a, .navbar-brand {
   line-height: 30px;
 }
 

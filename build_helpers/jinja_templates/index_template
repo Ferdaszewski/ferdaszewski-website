@@ -3,7 +3,7 @@
 {% block title %}The Walk{% endblock %}
 {% block page_content %}
       <section class="row">
-        <img src="assets/img/PCT-2004-Ferdaszewski-092.jpg" class="img-responsive col-xs-12">
+        <img src="assets/img/pct/PCT-2004-Ferdaszewski-092.jpg" class="img-responsive col-xs-12">
       </section>
 
       <!--Main page info section-->
