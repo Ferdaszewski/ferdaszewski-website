@@ -141,7 +141,7 @@ if __name__ == '__main__':
     write_file(journal_str, '../../journal.html')
 
     # Create photo page and write to HTML file_name
-    image_str = img_html('../../assets/img')
+    image_str = img_html('../../assets/img/pct')
     write_file(image_str, '../../photos.html')
 
     # Render index page
