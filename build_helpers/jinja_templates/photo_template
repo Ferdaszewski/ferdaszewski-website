@@ -1,11 +1,6 @@
 {% extends "base_template" %}
 {% block description %}Joshua 'Meat Pants' Ferdaszewski's journal entries from his 2004 thru-hike of the Pacific Crest Trail (PCT).{% endblock %}
 {% block title %}The Walk - Photos{% endblock %}
-{% block link_head %}
-    {{ super() }}
-    <script src="http://cdn.jsdelivr.net/blazy/latest/blazy.min.js"></script>
-    <script src="assets/js/photo.js"></script>
-{% endblock %}
 {% block photo_active %} active{% endblock %}
 {% block page_content %}
       <div>
@@ -38,4 +33,9 @@
         {% endfor %}
       </section>
 
+{% endblock %}
+{% block js_body %}
+    {{ super() }}
+    <script src="http://cdn.jsdelivr.net/blazy/latest/blazy.min.js"></script>
+    <script src="assets/js/photo.js"></script>
 {% endblock %}
