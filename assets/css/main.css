@@ -103,7 +103,7 @@ h1, h2, h3, .nav-text-name {
 }
 
 .footer-text {
-  font-style: 1em;
+  font-size: 1em;
 }
 
 a.text-muted:hover, .fa.text-muted:hover {
