@@ -137,17 +137,13 @@ def write_file(text, file_name):
 
 if __name__ == '__main__':
     # Create journal page and write to HTML file
-    journal_str = journal_html('thewalk.txt')
-    write_file(journal_str, '../../journal.html')
+    write_file(journal_html('thewalk.txt'), '../../web/journal.html')
 
-    # Create photo page and write to HTML file_name
-    image_str = img_html('../../assets/img/pct')
-    write_file(image_str, '../../photos.html')
+    # Create photo page and write to HTML file
+    write_file(img_html('../../web/assets/img/pct'), '../../web/photos.html')
 
-    # Render index page
-    index_str = render_html({}, 'index_template')
-    write_file(index_str, '../../index.html')
+    # Create index page and write to HTML file
+    write_file(render_html({}, 'index_template'), '../../web/index.html')
 
-    # Render about page
-    about_str = render_html({}, 'about_template')
-    write_file(about_str, '../../about.html')
+    # Create about page and write to HTML file
+    write_file(render_html({}, 'about_template'), '../../web/about.html')
